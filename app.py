@@ -1,6 +1,7 @@
 import argparse
 import json
 import copy
+import os
 
 import dash
 import dash_core_components as dcc
@@ -16,6 +17,13 @@ from layout import dark_layout, light_layout, root_layout, external_css
 driver = MockPSUDriver(0, 0.01)
 
 app = dash.Dash("power_supply_appa", static_folder='')
+
+if 'DYNO' in os.environ:
+    if bool(os.getenv('DASH_PATH_ROUTING', 0)):
+        app.config.requests_pathname_prefix = '/{}/'.format(
+            os.environ['DASH_APP_NAME']
+        )
+
 app.layout = root_layout
 app.scripts.config.serve_locally = True  # enables scripts to be sourced locally
 app.config['supress_callback_exceptions'] = True

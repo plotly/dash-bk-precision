@@ -23,7 +23,7 @@ class MockPSUDriver(object):
         self.max_output_current_setting = self.MAX_CURRENT
         self.max_output_voltage_setting = self.MAX_VOLTS
         self.resistance = self.DEFAULT_RESISTANCE
-        self.r = redis.from_url(os.environ.get("REDIS_URL"))
+        self.r = redis.StrictRedis.from_url(os.environ['REDIS_URL'])
         self.__set_redis_defautlts()
 
     def __set_redis_defautlts(self):
