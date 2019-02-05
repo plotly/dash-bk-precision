@@ -3,7 +3,6 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_daq as daq
 import base64
-""" Defines master layout for the application """
 
 logo_path = 'dash-daq-logo-by-plotly-stripe.png'
 img = base64.b64encode(open(logo_path, 'rb').read())
@@ -122,7 +121,7 @@ error_label_style = {
     "border-left": "4px solid #EF553B"
 }
 
-top_box = [
+top_box = html.Div([
     html.Div(
         className="row",
         children=[
@@ -149,7 +148,7 @@ top_box = [
             daq.LEDDisplay(
                 id="max-current", className="three columns", color="#4ADE00")
         ]),
-]
+])
 
 bottom_box = [
     html.Div(
@@ -228,14 +227,18 @@ dark_bottom_box = html.Div(
 
 light_top_box = html.Div(
     className="container",
-    children=[light_header] + [top_box],
-    style=light_top_box_style)
+    children=[
+        light_header,
+        top_box
+        ]
+    )
 light_bottom_box = html.Div(
-    className="container", children=bottom_box, style=light_bottom_box_style)
+    className="container", children=bottom_box
+    )
 
 dark_layout = html.Div(
     [daq.DarkThemeProvider(dark_top_box), dark_bottom_box],
-    id='content_',
+    id='contentx',
     style={
         'color': '#2a3f5f',
         'padding': '50px 50px 50px 50px',
@@ -246,7 +249,7 @@ light_layout = html.Div(
         light_top_box,
         light_bottom_box,
     ],
-    id='content_',
+    id='contentx',
     style={
         'color': '#F3F6FA',
         'padding': '50px 50px 50px 50px',
