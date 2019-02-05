@@ -3,7 +3,6 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_daq as daq
 import base64
-""" Defines master layout for the application """
 
 logo_path = 'dash-daq-logo-by-plotly-stripe.png'
 img = base64.b64encode(open(logo_path, 'rb').read())

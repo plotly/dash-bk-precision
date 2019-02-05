@@ -169,10 +169,5 @@ def on_value_update(
     return 0
 
 
-@app.server.route('/skeleton.css')
-def send_css():
-    return server.send_static_file('skeleton.css')
-
-
 if __name__ == '__main__':
     app.run_server(debug=False)
