@@ -51,13 +51,13 @@ class MockPSUDriver(object):
         """
         Sets the output state
         Args:
-            state: Boolean with True for ON and False for OFF.
+            state: Boolean with "True" for ON and False for OFF.
         Returns:
-            True on success
+            "True" on success
         """
         self.state = state
         self.r.set('state', state)
-        return True
+        return "True"
 
     def set_max_output_voltage(self, volts):
         """
@@ -79,7 +79,7 @@ class MockPSUDriver(object):
 
         self.max_output_voltage_setting = volts
         self.r.set('max_volts', volts)
-        return True
+        return "True"
 
     def set_max_output_current(self, curr):
         """
@@ -96,7 +96,7 @@ class MockPSUDriver(object):
 
         self.max_output_current_setting = curr
         self.r.set('max_curr', curr)
-        return True
+        return "True"
 
     def set_output_voltage(self, volts):
         """
@@ -113,7 +113,7 @@ class MockPSUDriver(object):
 
         self.voltage_setting = volts
         self.r.set('volts', volts)
-        return True
+        return "True"
 
     def set_output_current(self, curr):
         """
@@ -128,7 +128,7 @@ class MockPSUDriver(object):
 
         self.max_output_current_setting = curr
         self.r.set('max_curr', curr)
-        return True
+        return "True"
 
     def set_load(self, resistance):
         """
