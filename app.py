@@ -89,8 +89,8 @@ def update_button(status):
 @app.callback(Output('status', 'value'), [Input('on-button', 'on')])
 def on_power(input):
     values = driver.read_supply_values()
-    driver.set_control(input)
-    ret = driver.set_state(input)
+    driver.set_control(str(input))
+    ret = driver.set_state(str(input))
     return input if ret else not input
 
 
