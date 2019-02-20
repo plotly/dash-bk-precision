@@ -25,7 +25,7 @@ if 'DYNO' in os.environ:
         )
 
 app.layout = root_layout
-app.scripts.config.serve_locally = True  # enables scripts to be sourced locally
+
 app.config['supress_callback_exceptions'] = True
 server = app.server
 for css in external_css:
